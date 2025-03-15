@@ -25,4 +25,15 @@ async function getusers(){
    const users=await User.find();
    return users.map(x=>x.toObject())
 }
-module.exports = { adduser,getusers };
+
+async function getuser(id){
+    const user=await User.findById(id);
+    return user.toObject();
+ }
+ 
+async function updateUser(id,userModel) {
+    const filter={_id: id};
+    await User.findOneAndUpdate(filter,userModel);
+}
+
+module.exports = { adduser,getusers,getuser ,updateUser};
