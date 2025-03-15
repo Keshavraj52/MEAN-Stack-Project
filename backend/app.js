@@ -3,6 +3,8 @@ const app = express()
 const port = 5000
 const mongoose=require("mongoose");
 const userRoutes=require("./routes/user-route");
+var cors=require("cors");
+app.use(cors());
 
 app.use(express.json());
 

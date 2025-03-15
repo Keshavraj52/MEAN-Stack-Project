@@ -36,4 +36,10 @@ async function updateUser(id,userModel) {
     await User.findOneAndUpdate(filter,userModel);
 }
 
-module.exports = { adduser,getusers,getuser ,updateUser};
+
+async function deleteUser(id){
+    const filter={_id: id};
+    await User.findByIdAndDelete(id);
+ }
+
+module.exports = { adduser,getusers,getuser ,updateUser,deleteUser};
